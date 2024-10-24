@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLoginMutation } from "./redux/features/auth.api";
+import { useLoginMutation } from "./redux/features/login.api";
 
 function App() {
   const [login, obj] = useLoginMutation();
