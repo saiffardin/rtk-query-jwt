@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useLoginMutation } from "./redux/features/login.api";
+import { useLoginMutation } from "./redux/api/login.api";
 import { lsGetToken, lsRemoveToken } from "./helper/local-storage";
 import { useAppDispatch } from "./redux";
-import { clearUserInfo } from "./redux/features/user-info.slice";
+import { clearUserInfo, setUserInfo } from "./redux/features/user-info.slice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -14,6 +14,18 @@ function App() {
       console.log("login successful obj:", obj);
     }
   }, [isSuccess, obj]);
+
+  useEffect(() => {
+    const tokens = lsGetToken();
+
+    dispatch(
+      setUserInfo({
+        accessToken: tokens.access_token,
+        refreshToken: tokens.refresh_token,
+      }),
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleLogin = () => {
     const reqBody = {

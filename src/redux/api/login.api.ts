@@ -1,7 +1,7 @@
 import { lsSetToken } from "../../helper/local-storage";
 import { Login, LoginRes } from "../../types/login-types";
-import { dummyJsonApi } from "./auth.api";
-import { setUserInfo } from "./user-info.slice";
+import { dummyJsonApi } from "../api/auth.api";
+import { setUserInfo } from "../features/user-info.slice";
 
 const loginApi = dummyJsonApi.injectEndpoints({
   endpoints: (builder) => ({
