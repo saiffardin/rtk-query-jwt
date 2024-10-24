@@ -14,9 +14,13 @@ const userInfoSlice = createSlice({
     setUserInfo(state: UserInfoStateType, actions: UserInfoActionType) {
       state.data = actions.payload;
     },
+
+    clearUserInfo(state: UserInfoStateType) {
+      state.data = {};
+    },
   },
 });
 
 export const { reducer: userInfoReducer } = userInfoSlice;
-export const { setUserInfo } = userInfoSlice.actions;
+export const { setUserInfo, clearUserInfo } = userInfoSlice.actions;
 export const selectUserInfo = (state: TypeRootState) => state.userInfo.data;
