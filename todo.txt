@@ -1,0 +1,8 @@
+1. login er pore JWT redux-store (RS) & local-storage (LS) a rakhbo
+2. page refresh marle LS thike niye abar RS a rakhbo
+3. each api call er age RS thike pore req er header a add korbo. (request-interceptor type kisu ekta lagbe)
+4. (A) access-token expire hoye gele
+	- refresh-token diye new JWT anbo, and RS & LS a rakhbo
+	- j koyta dead-call hobe, oi call gula abar korte hobe.
+	- suppose 4 ta dead call holo, 4 baar refresh-token er api call hobe na (eta ekta edge case -> async-mutex)
+5. Role-based authentication and authorization with RTK
