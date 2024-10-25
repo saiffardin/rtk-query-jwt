@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { dummyJsonApi } from "./api/auth.api";
+import { dummyJsonApi } from "./api";
 import { userInfoReducer } from "./features/user-info.slice";
 
 export const store = configureStore({

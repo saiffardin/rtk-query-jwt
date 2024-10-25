@@ -1,6 +1,6 @@
 import { lsSetToken } from "../../helper/local-storage";
 import { Login, LoginRes } from "../../types/login-types";
-import { dummyJsonApi } from "../api/auth.api";
+import { dummyJsonApi } from ".";
 import { setUserInfo } from "../features/user-info.slice";
 import { ENDPOINTS } from "./constants/endpoints";
 

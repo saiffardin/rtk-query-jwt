@@ -1,5 +1,5 @@
 import { ProductRes } from "../../types/products";
-import { dummyJsonApi } from "./auth.api";
+import { dummyJsonApi } from ".";
 import { ENDPOINTS } from "./constants/endpoints";
 
 const { GET_CURRENT_USER } = ENDPOINTS;
