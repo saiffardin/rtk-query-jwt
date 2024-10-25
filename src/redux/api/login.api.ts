@@ -2,12 +2,15 @@ import { lsSetToken } from "../../helper/local-storage";
 import { Login, LoginRes } from "../../types/login-types";
 import { dummyJsonApi } from "../api/auth.api";
 import { setUserInfo } from "../features/user-info.slice";
+import { ENDPOINTS } from "./constants/endpoints";
+
+const { LOGIN } = ENDPOINTS;
 
 const loginApi = dummyJsonApi.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation<LoginRes, Login>({
+    [LOGIN.KEY]: builder.mutation<LoginRes, Login>({
       query: (reqBody) => ({
-        url: `login`,
+        url: LOGIN.URL,
         method: "POST",
         body: reqBody,
       }),

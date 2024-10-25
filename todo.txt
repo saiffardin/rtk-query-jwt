@@ -1,6 +1,6 @@
 1. [x] login er pore JWT redux-store (RS) & local-storage (LS) a rakhbo
 2. [x] page refresh marle LS thike niye abar RS a rakhbo
-3. [] each api call er age RS thike pore req er header a add korbo. (request-interceptor type kisu ekta lagbe)
+3. [x] each api call er age auth-token RS thike pore (LS thike porse, need discussion) req er header a add korbo.
 4. (A) [] access-token expire hoye gele
 	- refresh-token diye new JWT anbo, and RS & LS a rakhbo
 	- j koyta dead-call hobe, oi call gula abar korte hobe.
