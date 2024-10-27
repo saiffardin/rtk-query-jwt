@@ -8,6 +8,16 @@ const currentUserApi = dummyJsonApi.injectEndpoints({
   endpoints: (builder) => ({
     [GET_CURRENT_USER.KEY]: builder.query<ProductRes, unknown>({
       query: () => ({ url: GET_CURRENT_USER.URL }),
+
+      async onQueryStarted(_, api) {
+        const { queryFulfilled } = api;
+        try {
+          const data = await queryFulfilled;
+          console.log("===== onQueryStarted || currentUserApi:", data);
+        } catch (error) {
+          console.log("===== onQueryStarted ERROR || currentUserApi:", error);
+        }
+      },
     }),
   }),
 });

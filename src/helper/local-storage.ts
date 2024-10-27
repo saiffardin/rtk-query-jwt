@@ -9,8 +9,6 @@ interface TokensType {
 export const lsSetToken = (obj: TokensType) => {
   const { access_token, refresh_token } = obj;
 
-  console.log(obj);
-
   if (access_token) {
     localStorage.setItem(LS_ACCESS_TOKEN, JSON.stringify(access_token));
   }
