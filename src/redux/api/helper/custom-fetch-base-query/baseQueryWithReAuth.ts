@@ -1,3 +1,4 @@
+import { Mutex } from "async-mutex";
 import { setHeaders } from "../set-headers";
 import { BaseQueryWithReAuthType } from "../types";
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
@@ -11,33 +12,55 @@ const baseQuery = fetchBaseQuery({
   prepareHeaders: setHeaders,
 });
 
+// create a new mutex
+const mutex = new Mutex();
+
 export const baseQueryWithReAuth: BaseQueryWithReAuthType = async (
   args,
   api,
   extraOptions,
 ) => {
-  const result = await baseQuery(args, api, extraOptions);
+  // wait until the mutex is available without locking it
+  await mutex.waitForUnlock();
 
-  if (result.error && result.error.status === 401) {
-    console.log("%cUnauthorized 401", "color:red", result);
+  const mainApiResult = await baseQuery(args, api, extraOptions);
 
-    const refreshResult = await getAccessTokenByRefreshToken(
-      baseQuery,
-      api,
-      extraOptions,
-    );
+  if (mainApiResult.error && mainApiResult.error.status === 401) {
+    // checking whether the mutex is locked
+    if (!mutex.isLocked()) {
+      const release = await mutex.acquire();
+      try {
+        console.log("%cUnauthorized 401", "color:red", mainApiResult);
 
-    if (refreshResult.data) {
-      setTokensToReduxAndLocalStorage({ api, tokens: refreshResult.data });
+        const refreshResult = await getAccessTokenByRefreshToken(
+          baseQuery,
+          api,
+          extraOptions,
+        );
 
+        if (refreshResult.data) {
+          setTokensToReduxAndLocalStorage({ api, tokens: refreshResult.data });
+
+          const lastFailedApiResult = await baseQuery(args, api, extraOptions);
+          return lastFailedApiResult;
+        } else {
+          // call log-out api
+          api.dispatch(clearUserInfo());
+          lsRemoveToken();
+        }
+      } finally {
+        // release must be called once the mutex should be released again.
+        release();
+      }
+    }
+    // wait until the mutex is available without locking it
+    else {
+      // wait until the mutex is available without locking it
+      await mutex.waitForUnlock();
       const lastFailedApiResult = await baseQuery(args, api, extraOptions);
       return lastFailedApiResult;
-    } else {
-      // call log-out api
-      api.dispatch(clearUserInfo());
-      lsRemoveToken();
     }
   }
 
-  return result;
+  return mainApiResult;
 };

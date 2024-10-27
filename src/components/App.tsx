@@ -4,6 +4,7 @@ import { lsGetToken, lsRemoveToken } from "../helper/local-storage";
 import { useAppDispatch } from "../redux";
 import { clearUserInfo, setUserInfo } from "../redux/features/user-info.slice";
 import BtnGreen from "./BtnGreen";
+import BtnViolet from "./BtnViolet";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -63,6 +64,7 @@ function App() {
       </button>
 
       <BtnGreen />
+      <BtnViolet />
     </div>
   );
 }

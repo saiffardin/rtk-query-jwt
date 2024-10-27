@@ -8,7 +8,13 @@ enum GET_CURRENT_USER {
   URL = "auth/me",
 }
 
+enum GET_PRODUCTS {
+  KEY = "getProducts",
+  URL = "auth/products?limit=3",
+}
+
 export const ENDPOINTS = {
-  LOGIN: LOGIN,
-  GET_CURRENT_USER: GET_CURRENT_USER,
+  LOGIN,
+  GET_CURRENT_USER,
+  GET_PRODUCTS,
 };

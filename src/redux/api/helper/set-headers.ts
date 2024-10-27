@@ -1,20 +1,16 @@
 import { SetHeadersType } from "./types";
-import { ENDPOINTS } from "../constants/endpoints";
 import { lsGetToken } from "../../../helper/local-storage";
-
-const { GET_CURRENT_USER } = ENDPOINTS;
+import { endpointsWithBearerToken } from "../constants/endpoints-with-bearer-token";
 
 export const setHeaders: SetHeadersType = (headers, api) => {
   const { endpoint } = api;
-  // console.log("set headers API:", api);
-
-  const endpointsWithBearerToken: string[] = [GET_CURRENT_USER.KEY];
 
   if (endpointsWithBearerToken.includes(endpoint)) {
     /*
     const reduxState = getState();
     console.log({ reduxState });
     */
+
     /** EDGE CASE
      * when an api, which requires auth-token, is called after page-refresh
      * how we can handle this ?
