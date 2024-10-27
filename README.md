@@ -1,50 +1,12 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ami JWT er ekta full flow implement korar cheshta korsi. ei koyta jinish eikhane korsi so far:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. login er pore JWT redux-store (`RS`) & local-storage (`LS`) a rakha hoise
+2. page refresh marle `LS` thike niye abar `RS` a rakha hoise
+3. each api call er age __access-token `LS` thike read kore, req er header a add kora hoise.__
+    - j shob endpoints a header dorkar kebol shegulai add kora hoise, etar jonno 2 ta `createApi` kora lage nai. 1 ta diyei kora gese 
+4. access-token expire hoye gele
+    - refresh-token diye new JWT anbo, and `RS` & `LS` a rakhbo
+    - j koyta dead-call hobe, oi call gula abar korte hobe.
+    - suppose 4 ta dead call holo, 4 baar refresh-token er api call hobe na (async-mutex)
