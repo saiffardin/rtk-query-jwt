@@ -10,3 +10,10 @@ ami JWT er ekta full flow implement korar cheshta korsi. ei koyta jinish eikhane
     - refresh-token diye new JWT anbo, and `RS` & `LS` a rakhbo
     - j koyta dead-call hobe, oi call gula abar korte hobe.
     - suppose 4 ta dead call holo, 4 baar refresh-token er api call hobe na (async-mutex)
+
+
+
+
+## Run Local Json Server
+
+npx json-server --watch db.json --port 5000
