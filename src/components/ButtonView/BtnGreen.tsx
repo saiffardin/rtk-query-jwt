@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetCurrentUserQuery } from "../redux/api/current-user.api";
+import { useGetCurrentUserQuery } from "../../redux/api/current-user.api";
 
 const BtnGreen = () => {
   const [fetchData, setFetchData] = useState(false);

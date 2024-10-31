@@ -1,4 +1,4 @@
-import { ProductRes } from "../../types/products";
+import { ProductRes } from "../../types/product-types";
 import { dummyJsonApi } from ".";
 import { ENDPOINTS } from "./constants/endpoints";
 

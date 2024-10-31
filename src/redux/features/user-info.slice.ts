@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { TypeRootState } from "../../types/redux";
 import {
-  TypeRootState,
   UserInfoActionType,
   UserInfoStateType,
-} from "../../types/redux-store-types";
+} from "../../types/redux/user-info-types";
 
 const userInfoInitialState: UserInfoStateType = { data: {} };
 

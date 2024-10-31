@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useGetProductsQuery } from "../redux/api/get-products.api";
-import { useGetCurrentUserQuery } from "../redux/api/current-user.api";
+import { useGetCurrentUserQuery } from "../../redux/api/current-user.api";
+import { useGetProductsQuery } from "../../redux/api/get-products.api";
 
 const BtnViolet = () => {
   const [fetchData, setFetchData] = useState(false);

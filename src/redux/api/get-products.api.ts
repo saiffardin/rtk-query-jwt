@@ -1,5 +1,5 @@
 import { dummyJsonApi } from ".";
-import { ProductRes } from "../../types/products";
+import { ProductRes } from "../../types/product-types";
 import { ENDPOINTS } from "./constants/endpoints";
 
 const { GET_PRODUCTS } = ENDPOINTS;
