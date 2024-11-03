@@ -1,12 +1,12 @@
 import ButtonView from "./ButtonView";
-import TodoList from "./TodoList";
+import TodoApp from "./TodoApp";
 
 function App() {
   return (
     <div className="border-2 border-red-500">
       <ButtonView />
 
-      <TodoList />
+      <TodoApp />
     </div>
   );
 }

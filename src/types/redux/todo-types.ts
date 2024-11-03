@@ -1,14 +1,9 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-
-export interface TodoType {
-  id: number;
-  text: string;
-  completed: boolean;
-}
+import { TodoType } from "../todo-response-types";
 
 export interface TodoListStateType {
   data: TodoType[];
 }
 
 export type TodoActionType = PayloadAction<TodoType>;
-// export type TodoListActionType = PayloadAction<TodoType[]>;
+export type TodoListActionType = PayloadAction<TodoType[]>;

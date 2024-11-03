@@ -1,109 +1,25 @@
 {
-  "posts": [
+  "todo": [
     {
-      "title": "Exploring the Cosmos Update",
-      "content": "A journey through the stars and beyond.",
-      "id": "1"
+      "id": 1,
+      "text": "Learn React JS",
+      "completed": false
     },
     {
-      "id": "2",
-      "title": "Understanding AI",
-      "content": "An introduction to artificial intelligence and machine learning."
+      "id": 2,
+      "text": "Test todo 2",
+      "completed": true
     },
     {
-      "id": "3",
-      "title": "Healthy Eating Tips",
-      "content": "A guide to maintaining a balanced diet."
+      "id": 3,
+      "text": "Test todo 3",
+      "completed": false
     },
     {
-      "id": "4",
-      "title": "The Future of Work",
-      "content": "How remote work is reshaping the workplace."
-    },
-    {
-      "id": "5",
-      "title": "Gardening for Beginners",
-      "content": "Starting your own garden can be easy with these tips."
-    },
-    {
-      "id": "6",
-      "title": "Minimalist Lifestyle",
-      "content": "The benefits of living with less."
-    },
-    {
-      "id": "7",
-      "title": "Top 10 Programming Languages",
-      "content": "Languages that are in demand for 2024."
-    },
-    {
-      "id": "8",
-      "title": "Introduction to Meditation",
-      "content": "How to get started with meditation for relaxation."
-    },
-    {
-      "id": "9",
-      "title": "Basics of Financial Planning",
-      "content": "Building a foundation for financial security."
-    },
-    {
-      "id": "10",
-      "title": "Photography Tips",
-      "content": "Tips for capturing stunning photos."
-    },
-    {
-      "id": "11",
-      "title": "Exploring Virtual Reality",
-      "content": "How VR is changing entertainment and education."
-    },
-    {
-      "id": "12",
-      "title": "Improving Productivity",
-      "content": "Techniques to stay focused and productive."
-    },
-    {
-      "id": "13",
-      "title": "History of Ancient Egypt",
-      "content": "Fascinating facts about ancient Egyptian civilization."
-    },
-    {
-      "id": "14",
-      "title": "Building a Blog",
-      "content": "Starting a personal blog from scratch."
-    },
-    {
-      "id": "15",
-      "title": "Learning to Code",
-      "content": "Beginner’s guide to programming."
-    },
-    {
-      "id": "16",
-      "title": "Digital Nomad Lifestyle",
-      "content": "Working remotely while traveling the world."
-    },
-    {
-      "id": "17",
-      "title": "The Art of Negotiation",
-      "content": "Strategies to become a better negotiator."
-    },
-    {
-      "id": "18",
-      "title": "Understanding Blockchain",
-      "content": "An overview of blockchain technology and its uses."
-    },
-    {
-      "id": "19",
-      "title": "Benefits of Reading",
-      "content": "Why you should make reading a daily habit."
-    },
-    {
-      "id": "2e9d",
-      "title": "New Post Title",
-      "content": "new Post Content"
-    },
-    {
-      "id": "4916",
-      "title": "New Post Title",
-      "content": "new Post Content"
+      "id": 4,
+      "completed": false,
+      "text": "add tags"
     }
+    
   ]
 }
